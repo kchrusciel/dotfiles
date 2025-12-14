@@ -1,0 +1,44 @@
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Node
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.babelrc.local
+.npmrc
+.yarnrc
+
+# Jetbrains
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# General
+/dist
+/tmp
+/temp
+
+# Secrets
+.env
+
+# Outputs
+out/
+build/
+target/
+.gradle
+.idea_modules/
+.vscode/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+hs_err_pid*
