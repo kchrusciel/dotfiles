@@ -1,0 +1,19 @@
+[init]
+	defaultBranch = main
+[user]
+	name = kchrusciel
+[core]
+	excludesFile = ~/.gitignore
+[rerere]
+    enabled = true
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    pr = pull -r
+    sw = switch
+
+    llog = log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=iso
+[help]
+    autocorrect = 1
