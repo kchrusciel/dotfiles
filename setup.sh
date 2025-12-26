@@ -1,3 +1,8 @@
+NC='\033[0m' # No Color
+TICK="✅${NC}"
+PROGRESS="⏳${NC}"
+CROSS="❌${NC}"
+
 # MacOS System
 # Remove Message of the day prompt
 touch $HOME/.hushlogin
@@ -7,19 +12,31 @@ defaults write com.apple.finder AppleShowAllFiles YES
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # Install iTerm2
 brew install --cask iterm2
-# Install Git
-brew install git
+
+echo "${PROGRESS} Installing GIT..."
+if OUTPUT=$(brew install git 2>&1); then
+  echo "${TICK} GIT installed"
+else
+  echo "${CROSS} Error during GIT installation. Error:\n"
+  echo "$OUTPUT"
+  exit 1
+fi
+
 # Install Oh-My-Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-# Remove default .zshrc
+
+echo "${PROGRESS} Removing default .zshrc..."
 rm "$HOME/.zshrc"
+echo "${TICK} Default .zshrc removed"
 
-echo "Installing cURL"
+echo "${PROGRESS} Installing cURL..."
 stow curl -t $HOME/
-echo "cURL installed"
+echo "${TICK} cURL installed"
 
-# ZSH
+echo "${PROGRESS} Installing zsh..."
 stow --adopt zsh -t $HOME/
+echo "${TICK} zsh installed"
+
 # ZSH theme
 git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 # ZSH autosuggestions plugin
