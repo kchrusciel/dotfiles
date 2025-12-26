@@ -13,6 +13,11 @@ brew install git
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 # Remove default .zshrc
 rm "$HOME/.zshrc"
+
+echo "Installing cURL"
+stow curl -t $HOME/
+echo "cURL installed"
+
 # ZSH
 stow --adopt zsh -t $HOME/
 # ZSH theme
@@ -45,4 +50,3 @@ stow git -t $HOME/
 
 # Restart shell
 killall cfprefsd
-killall iTerm2 && open -a iTerm .
